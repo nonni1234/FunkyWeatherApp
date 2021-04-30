@@ -1,16 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 html {
     background: rgba(64, 64, 255, 0.2);
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
 }
 #icon {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
+    margin-top: 1em;
 }
 
 #weather {
     width: fit-content;
     margin: auto;
+    text-align: center;
 }
 #heat {
-    
+    font-family: 'Roboto', sans-serif;
+    font-size: 4em;
 }
 
