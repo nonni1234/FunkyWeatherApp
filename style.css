@@ -1,0 +1,16 @@
+html {
+    background: rgba(64, 64, 255, 0.2);
+}
+#icon {
+    width: 100px;
+    height: 100px;
+}
+
+#weather {
+    width: fit-content;
+    margin: auto;
+}
+#heat {
+    
+}
+
