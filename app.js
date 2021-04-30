@@ -1,9 +1,5 @@
 const apikey = "c0bd32b3ab26640600d6f7e7219aa84d";
 
-const icons = {
-    "50d": "./ico"
-};
-
 function getIcon(iconid) {
     const id = parseInt(iconid);
     if (id == NaN) console.log("id failed");
@@ -17,14 +13,14 @@ function getIcon(iconid) {
         bg = "color";
     }
     else if (id >= 300 && id <= 321) {
-        // Drizzle+
+        // Drizzle
         nafn = ""
         bg = ""
     }
     else if (id >= 500 && id <= 531) {
         // Rain
-        nafn = ""
-        bg = ""
+        nafn = "rain"
+        bg = "grey";
     }
     else if (id >= 701 && id <= 781) {
         // Atmosphere
@@ -72,12 +68,14 @@ function getIcon(iconid) {
 }
 
 function Weather(weather) {
+    const desc = weather.weather[0].description.charAt(0).toUpperCase() + weather.weather[0].description.slice(1);;
     document.querySelector("#heat").textContent = Math.round(weather.main.temp)+"°";
+    document.querySelector("#description").textContent = desc;
 }
 
 function getWeather(lat,lon) {
-    //const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=${"metric"}`;
-    const url = "./debugmanualedit.json";
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=${"metric"}`;
+    //const url = "./debugmanualedit.json";
     console.log("url: " + url);
     fetch(url).then((response) => {
         response.json().then((data) => {
@@ -101,7 +99,6 @@ function changeIcon(id) {
     const { source, bg } = getIcon(id);
     console.log(id,source,bg);
     const icon = document.querySelector("#icon");
-
     try {
     icon.src = source;
     document.body.style.backgroundColor = bg;
