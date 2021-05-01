@@ -3,10 +3,9 @@ const apikey = "c0bd32b3ab26640600d6f7e7219aa84d";
 function getIcon(iconid) {
     const id = parseInt(iconid);
     if (id == NaN) console.log("id failed");
-    else {
     let bg = "red";
     let nafn;
-    let source;
+    let source = "./icons/sun.svg";
     let night = false;
     if (id >= 200 && id <= 232) {
         // Thunderstorm
@@ -63,7 +62,6 @@ function getIcon(iconid) {
             source = `./icons/${nafn}.svg`;
         }
     }
-}
     
     console.log(source);
     return {source,bg};
