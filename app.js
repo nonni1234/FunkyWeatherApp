@@ -3,10 +3,11 @@ const apikey = "c0bd32b3ab26640600d6f7e7219aa84d";
 function getIcon(iconid) {
     const id = parseInt(iconid);
     if (id == NaN) console.log("id failed");
+    else {
     let bg = "red";
     let nafn;
     let source;
-    let night;
+    let night = false;
     if (id >= 200 && id <= 232) {
         // Thunderstorm
         nafn = "clouds";
@@ -14,8 +15,8 @@ function getIcon(iconid) {
     }
     else if (id >= 300 && id <= 321) {
         // Drizzle
-        nafn = ""
-        bg = ""
+        nafn = "rain"
+        bg = "grey"
     }
     else if (id >= 500 && id <= 531) {
         // Rain
@@ -49,7 +50,7 @@ function getIcon(iconid) {
                 bg = "grey";
                 break;
         }
-    }
+    } else {}
 
     if (!night) {
         source = `./icons/${nafn}.svg`;
@@ -62,6 +63,7 @@ function getIcon(iconid) {
             source = `./icons/${nafn}.svg`;
         }
     }
+}
     
     console.log(source);
     return {source,bg};
@@ -74,8 +76,8 @@ function Weather(weather) {
 }
 
 function getWeather(lat,lon) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=${"metric"}`;
-    //const url = "./debugmanualedit.json";
+    //const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=${"metric"}`;
+    const url = "./debugmanualedit.json";
     console.log("url: " + url);
     fetch(url).then((response) => {
         response.json().then((data) => {
