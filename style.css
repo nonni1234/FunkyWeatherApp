@@ -6,16 +6,19 @@ html {
     height: 100%;
 }
 body {
+    display: flex;
     height: 100%;
     margin: 0;
 }
 #icon {
     width: 200px;
     height: 200px;
-    margin-top: 1em;
+    margin: 0
 }
 
 #weather {
+    vertical-align: middle;
+    height: fit-content;
     width: fit-content;
     margin: auto;
     text-align: center;
@@ -23,11 +26,17 @@ body {
 #heat {
     font-family: 'Roboto', sans-serif;
     font-size: 4em;
+    text-align: center;
 }
 
 #description {
     margin: 10px 0;
     font-size: 2em;
+    font-family: 'Roboto Slab', serif;
+}
+#feelslike {
+    font-size: 1.5em;
+    padding-right: 1em;
     font-family: 'Roboto Slab', serif;
 }
 @media only screen and (min-width: 1000px) {

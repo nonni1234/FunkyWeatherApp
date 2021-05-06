@@ -1,16 +1,24 @@
 const apikey = "c0bd32b3ab26640600d6f7e7219aa84d";
 
-function getIcon(iconid) {
+function toDate(unix) {
+    var date = new Date(unix * 1000);
+    return {"Y":date.getUTCFullYear(), "M": date.getUTCMonth(), "D":date.getUTCDay(), "h":date.getUTCHours(), "m":date.getUTCMinutes(), "s":date.getUTCSeconds(), "obj":date};
+};
+
+
+
+function getIcon(iconid, isDay) {
     const id = parseInt(iconid);
     if (id == NaN) console.log("id failed");
     let bg = "red";
     let nafn;
-    let source = "./icons/sun.svg";
+    let source;
     let night = false;
+    
     if (id >= 200 && id <= 232) {
         // Thunderstorm
         nafn = "clouds";
-        bg = "color";
+        bg = "darkgrey";
     }
     else if (id >= 300 && id <= 321) {
         // Drizzle
@@ -67,10 +75,31 @@ function getIcon(iconid) {
     return {source,bg};
 }
 
+
+
 function Weather(weather) {
+
+    let isDay; // bool
+    let currenttime = toDate(weather.dt);
+    let suninfo = {"sunrise":toDate(weather.sys.sunrise), "sunset":toDate(weather.sys.sunset)};
+    if(weather.dt < weather.sys.sunset && weather.dt > weather.sys.sunrise) {
+        console.log("it is day");
+        isDay = true;
+    }
+    else {
+        console.log("it is not day");
+        isDay = false;
+    }
+
+    changeIcon(weather.weather[0].id, isDay);
     const desc = weather.weather[0].description.charAt(0).toUpperCase() + weather.weather[0].description.slice(1);;
     document.querySelector("#heat").textContent = Math.round(weather.main.temp)+"°";
     document.querySelector("#description").textContent = desc;
+    document.querySelector("#feelslike").textContent = "Feels like "+Math.round(weather.main.feels_like)+"°";
+    if (isDay) {
+        document.querySelector("#suninfo").textContent = "The sun sets at "+suninfo.sunset.obj.toLocaleTimeString("en-UK");
+    }
+    document.querySelector("#debug").textContent = toDate(weather.sys.sunset).obj;
 }
 
 function getWeather(lat,lon) {
@@ -80,7 +109,7 @@ function getWeather(lat,lon) {
     fetch(url).then((response) => {
         response.json().then((data) => {
             Weather(data);
-            changeIcon(data.weather[0].id);
+            
         })
     }).catch((err) => {console.log("Fetch error: "+err )})
 };
@@ -93,7 +122,7 @@ function getLocation() {
     } else {
       console.log("Geolocation is not supported by this browser :(");
     }
-}// pussy
+}
 
 function changeIcon(id) {
     const { source, bg } = getIcon(id);
@@ -110,3 +139,5 @@ function changeIcon(id) {
 }
 
 getLocation();
+
+
