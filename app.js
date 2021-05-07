@@ -9,11 +9,11 @@ function toDate(unix) {
 
 function getIcon(iconid, isDay) {
     const id = parseInt(iconid);
+
     if (id == NaN) console.log("id failed");
     let bg = "red";
     let nafn;
     let source;
-    let night = false;
     
     if (id >= 200 && id <= 232) {
         // Thunderstorm
@@ -59,13 +59,13 @@ function getIcon(iconid, isDay) {
         }
     } else {}
 
-    if (!night) {
+    if (isDay==true) {
         source = `./icons/${nafn}.svg`;
     } else {
-        // night source
+        //  source
         // kristinn er inspiration
         try {
-        source = `./icons/${nafn+"n"}.svg`;
+            source = `./icons/${nafn+"n"}.svg`;
         } catch {
             source = `./icons/${nafn}.svg`;
         }
@@ -99,7 +99,7 @@ function Weather(weather) {
     if (isDay) {
         document.querySelector("#suninfo").textContent = "The sun sets at "+suninfo.sunset.obj.toLocaleTimeString("en-UK");
     }
-    document.querySelector("#debug").textContent = toDate(weather.sys.sunset).obj;
+    //document.querySelector("#debug").textContent = toDate(weather.sys.sunset).obj;
 }
 
 function getWeather(lat,lon) {
@@ -124,8 +124,8 @@ function getLocation() {
     }
 }
 
-function changeIcon(id) {
-    const { source, bg } = getIcon(id);
+function changeIcon(id, isDay) {
+    const { source, bg } = getIcon(id, isDay);
     console.log(id,source,bg);
     const icon = document.querySelector("#icon");
     try {
