@@ -97,14 +97,17 @@ function Weather(weather) {
     document.querySelector("#description").textContent = desc;
     document.querySelector("#feelslike").textContent = "Feels like "+Math.round(weather.main.feels_like)+"°";
     if (isDay) {
-        document.querySelector("#suninfo").textContent = "The sun sets at "+suninfo.sunset.obj.toLocaleTimeString("en-UK");
+        document.querySelector("#suninfo").textContent = "The sun sets at "+suninfo.sunset.obj.toLocaleTimeString("en-GB");
+    }
+    else {
+        document.querySelector("#suninfo").textContent = "The sun comes up at "+suninfo.sunrise.obj.toLocaleTimeString("en-GB");
     }
     //document.querySelector("#debug").textContent = toDate(weather.sys.sunset).obj;
 }
 
 function getWeather(lat,lon) {
-    //const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=${"metric"}`;
-    const url = "./debugmanualedit.json";
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=${"metric"}`;
+    //const url = "./debugmanualedit.json";
     console.log("url: " + url);
     fetch(url).then((response) => {
         response.json().then((data) => {
