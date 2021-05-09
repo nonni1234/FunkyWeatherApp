@@ -41,7 +41,7 @@ function getIcon(iconid, isDay) {
         switch (id) {
             case 800:
                 nafn = "sun";
-                bg = "yellow";
+                bg = "#ffff99";
                 break;
             case 801:
                 nafn = "half-cloudy";
