@@ -1,5 +1,4 @@
 const apikey = "c0bd32b3ab26640600d6f7e7219aa84d";
-
 function toDate(unix) {
     var date = new Date(unix * 1000);
     return {"Y":date.getUTCFullYear(), "M": date.getUTCMonth(), "D":date.getUTCDay(), "h":date.getUTCHours(), "m":date.getUTCMinutes(), "s":date.getUTCSeconds(), "obj":date};
@@ -138,4 +137,15 @@ function changeIcon(id, isDay) {
 
 getLocation();
 
-
+window.addEventListener("load",() => {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./serviceWorker.js')
+          .then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }).catch(function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      }
+})

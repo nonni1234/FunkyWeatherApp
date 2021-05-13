@@ -13,10 +13,10 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "/FunkyWeatherApp",
+    "start_url": ".",
     "background_color": "#3367D6",
     "display": "standalone",
-    "scope": "/FunkyWeatherApp",
+    "orientation": "portrait",
     "theme_color": "#3367D6",
     "description": "Weather forecast information"
   }
