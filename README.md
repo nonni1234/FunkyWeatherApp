@@ -1,10 +1,8 @@
 # FunkyWeatherApp
-App that shows you the weather in a cool user friendly way
-
-## Hugmyndir/aðrir möguleikar
-- Sýnir hvenær næsta sólarupprás/sólsetur er (fer eftir hvort er næst)
-    - komin með tímann en það vantar gott lúkk á þetta
-- Ef við gerum þetta er hægt að gera eitthvað sem sýnir hvernig veðrið mun vera á eftir
-
-## Annað
-- Ég gerði development branch, aðallega til að reyna við eitthvað manifest drasl
+# Jón Bjarki og Sesselja Bjarney
+## Gagnvirkt veður app
+## Um appið:
+[FunkyWeatherApp](https://nonni1234.github.io/FunkyWeatherApp/) er app sem sækir staðsetningu þína og skilar upplýsingum um veðrið notandi [OpenWeatherMap API](https://openweathermap.org/api) <br>
+Appið mun breyta útlitinu á síðunni eftir veðri fyrir flott og þægilegt notendaviðmót
+## Útkoman
+Frumgerðin 

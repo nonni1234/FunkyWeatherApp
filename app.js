@@ -70,8 +70,7 @@ function getIcon(iconid, isDay) {
             source = `./icons/${nafn}.svg`;
         }
     }
-    
-    console.log(source);
+
     return {source,bg};
 }
 
@@ -83,11 +82,9 @@ function Weather(weather) {
     let currenttime = toDate(weather.dt);
     let suninfo = {"sunrise":toDate(weather.sys.sunrise), "sunset":toDate(weather.sys.sunset)};
     if(weather.dt < weather.sys.sunset && weather.dt > weather.sys.sunrise) {
-        console.log("it is day");
         isDay = true;
     }
     else {
-        console.log("it is not day");
         isDay = false;
     }
 
@@ -108,7 +105,6 @@ function Weather(weather) {
 function getWeather(lat,lon) {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=${"metric"}`;
     //const url = "./debugmanualedit.json";
-    console.log("url: " + url);
     fetch(url).then((response) => {
         response.json().then((data) => {
             Weather(data);
@@ -129,7 +125,6 @@ function getLocation() {
 
 function changeIcon(id, isDay) {
     const { source, bg } = getIcon(id, isDay);
-    console.log(id,source,bg);
     const icon = document.querySelector("#icon");
     try {
     icon.src = source;
