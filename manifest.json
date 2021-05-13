@@ -3,24 +3,34 @@
     "name": "Funky Weather App",
     "icons": [
       {
-        "src": "/icons/icons-192.png",
+        "src": "/icons/appicons/icons-192.png",
         "type": "image/png",
         "sizes": "192x192"  
       },
       {
-        "src": "/icons/icons-512.png",
+        "src": "/icons/appicons/icons-512.png",
         "type": "image/png",
         "sizes": "512x512"
       },
       {
-        "src": "/icons/icons-96.png",
+        "src": "/icons/appicons/icons-96.png",
         "type": "image/png",
         "sizes": "96x96"
       },
       {
-        "src": "/icons/icons-72.png",
+        "src": "/icons/appicons/icons-72.png",
         "type": "image/png",
         "sizes": "72x72"
+      },
+      {
+        "src": "/icons/appicons/icons-48.png",
+        "type": "image/png",
+        "sizes": "48x48"
+      },
+      {
+        "src": "/icons/appicons/icons-36.png",
+        "type": "image/png",
+        "sizes": "36x36"
       }
     ],
     "start_url": ".",
