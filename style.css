@@ -30,13 +30,13 @@ body {
 }
 
 #description {
-    margin: 10px 0;
+    /* margin: 10px 0; */
     font-size: 2em;
     font-family: 'Roboto Slab', serif;
 }
 #feelslike {
     font-size: 1.5em;
-    padding-right: 1em;
+    /* padding-right: 1em; */
     font-family: 'Roboto Slab', serif;
 }
 @media only screen and (min-width: 1000px) {
